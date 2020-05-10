@@ -6,10 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 </head>
 
 <body>
+    <header>
+        <h1>Calculator Project</h1>
+        <h4>by kynki7</h4>
+    </header>
+    <div class="container">
+        <div id="calculator">
+            <div id="calculatorHeader">
+                <button class="headerBtns" id="infoBtn"></button>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="output">
+                <div id="number">120</div>
+            </div>
+            <div id="calculatorInput">
+                <button class="input" id="cancelBtn">C</button>
+                <button class="input" id="plusMinusBtn">±</button>
+                <button class="input" id="percentBtn">%</button>
+                <button class="input" id="divideBtn">÷</button>
+                <button class="numInput" id="sevenBtn">7</button>
+                <button class="numInput" id="eightBtn">8</button>
+                <button class="numInput" id="nineBtn">9</button>
+                <button class="input" id="multiplyBtn">x</button>
+                <button class="numInput" id="fourBtn">4</button>
+                <button class="numInput" id="fiveBtn">5</button>
+                <button class="numInput" id="sixBtn">6</button>
+                <button class="input" id="minusBtn">-</button>
+                <button class="numInput" id="oneBtn">1</button>
+                <button class="numInput" id="twoBtn">2</button>
+                <button class="numInput" id="threeBtn">3</button>
+                <button class="input" id="plusBtn">+</button>
+                <button class="numInput" id="zeroBtn">0</button>
+                <button class="numInput" id="dotBtn">.</button>
+                <div id="emptyBtn"></div>
+                <button class="input" id="equalBtn">=</button>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="script.js"></script>
+
 </html>
