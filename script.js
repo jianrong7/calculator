@@ -37,7 +37,7 @@ function buttonPressed(btn) {
 }
 /* NIGHT MODE*/
 checkbox.addEventListener("change", function() {
-    const border = document.getElementById("calculator");
+    const border = document.querySelector("#calculator");
     const header = document.querySelector("#calculatorHeader");
     const output = document.querySelector("#output");
     const number = document.querySelector("#number");
@@ -47,7 +47,7 @@ checkbox.addEventListener("change", function() {
     const equal = document.querySelector("#equalBtn");
 
     if (this.checked) {
-        border.style.borderColor = "#212b41;"
+        border.style.borderColor = "#212b41";
         header.style.backgroundColor = "#212b41";
         output.style.backgroundColor = "#212b41";
         number.style.color = "#18d4a3";

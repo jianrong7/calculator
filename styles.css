@@ -25,7 +25,8 @@ header {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    border: 3px solid grey;
+    border: 3px solid;
+    border-color: grey;
     background-clip: border-box;
     overflow: hidden;
 }
@@ -59,7 +60,8 @@ header {
     position: absolute;
     right: 0;
     bottom: 0;
-    margin-right: 10px;
+    margin-right: 13px;
+    margin-bottom: 3px;
     font-size: 45px;
     color: #373e47;
     font-family: 'Noto Sans SC', sans-serif;
@@ -79,30 +81,30 @@ header {
     background-color: #f4fdfb;
     border: none;
     color: #373e47;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     margin: 5px;
     border-radius: 50%;
     display: flex;            
     align-items: center;      
     justify-content: center; 
     justify-self: center;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: lighter;
 }
 .numInput {
     background-color: #ffffff;
     border: none;
     color: #373e47;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     margin: 5px;
     border-radius: 50%;
     display: flex;            
     align-items: center;      
     justify-content: center; 
     justify-self: center;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: lighter;
 }
 #equalBtn {
