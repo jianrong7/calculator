@@ -38,19 +38,6 @@ header {
     background-clip: border-box;  
     padding: 15px;
 }
-.headerBtns {
-    background-color: #f0c622;
-    border: none;
-    color: #333333;
-    height: 10px;
-    width: 10px;
-    margin: 5px;
-    border-radius: 50%;
-    display: flex;            
-    align-items: center;      
-    justify-content: center; 
-    justify-self: center;
-}
 #output {
     position: relative;
     height: 100px;
@@ -116,7 +103,33 @@ header {
     transform: translateY(3px);
 }
 
-/* toggle CSS */
+/* Info Button */
+.headerBtns {
+  background-color: #f0c622;
+  height: 10px;
+  width: 10px;
+  margin: 5px;
+  border-radius: 50%;    
+  position: relative;
+  display: inline-block;
+}
+.headerBtns .tooltiptext {
+  visibility: hidden;
+  width: 70px;
+  font-size: 10px;
+  color: #333333;
+  text-align: center;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.headerBtns:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* Night Mode Toggle Slider */
 .switch {
   position: relative;
   display: inline-block;

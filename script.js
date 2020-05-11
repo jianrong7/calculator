@@ -1,4 +1,5 @@
 var checkbox = document.querySelector("input[name=checkbox]");
+var infoBtn = document.querySelector("#infoBtn");
 
 function add(a, b) {
     return a + b;
