@@ -35,6 +35,7 @@ function buttonPressed(btn) {
     // setTimeout(removeClicked.bind(null, btn), 100);
     setTimeout(() => {btn.classList.remove('clicked')}, 100);
 }
+
 /* NIGHT MODE*/
 checkbox.addEventListener("change", function() {
     const border = document.querySelector("#calculator");
@@ -48,23 +49,35 @@ checkbox.addEventListener("change", function() {
 
     if (this.checked) {
         border.style.borderColor = "#212b41";
+        border.style.transitionDuration = ".4s";
+
         header.style.backgroundColor = "#212b41";
+        header.style.transitionDuration = ".4s";
+
         output.style.backgroundColor = "#212b41";
+        output.style.transitionDuration = ".4s";
+
         number.style.color = "#18d4a3";
+        number.style.transitionDuration = ".4s";
+
         calcInput.style.backgroundColor = "#2d384f";
+        calcInput.style.transitionDuration = ".4s";
 
         operatorInputs.forEach((operatorInput) => {
             operatorInput.style.backgroundColor = "#212b41";
             operatorInput.style.color = "#18d4a3";
+            operatorInput.style.transitionDuration = ".4s";
         })
 
         numberInputs.forEach((numberInput) => {
             numberInput.style.backgroundColor = "#2d384f";
             numberInput.style.color = "#96a8a0";
+            numberInput.style.transitionDuration = ".4s";
         })
 
         equal.style.backgroundColor = "#18d4a3";
         equal.style.color = "#333333";
+        equal.style.transitionDuration = ".4s";
     }
     else {
         border.style.border = "grey;"
