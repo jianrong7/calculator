@@ -60,6 +60,20 @@ function resetCalculator() {
     waitingForSecondOperand = false;
     operator = null;
 }
+function handlePercent() {
+    if(!displayValue == "0"){
+        displayValue *= 0.01;
+        displayValue = Math.round(displayValue*100000000)/100000000;
+    }
+    updateDisplay();
+}
+function handlePlusMinus() {
+    if (displayValue[0] === '-') {
+        displayValue = displayValue.slice(1);
+    } else {
+          displayValue = '-' + displayValue;
+    }
+}
 
 updateDisplay();
 keys.addEventListener("click", (event) => {
@@ -73,9 +87,18 @@ keys.addEventListener("click", (event) => {
         updateDisplay();
         return;
     }
+    if(target.classList.contains('percent')) {
+        handlePercent();
+        updateDisplay();
+    }
+    if(target.classList.contains('plusMinus')) {
+        handlePlusMinus();
+        updateDisplay();
+    }
     if(target.classList.contains('decimal')) {
         inputDecimal(target.value);
         updateDisplay();
+        console.log(displayValue)
         return;
     }
     if(target.classList.contains('clear')) {
