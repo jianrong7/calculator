@@ -1,44 +1,99 @@
-var checkbox = document.querySelector("input[name=checkbox]");
-var infoBtn = document.querySelector("#infoBtn");
+const checkbox = document.querySelector(".checkbox");
+const keys = document.querySelector("#calculatorInput");
 
-function add(a, b) {
-    return a + b;
+let displayValue = "0";
+let firstOperand = null;
+let waitingForSecondOperand = false;
+let operator = null;
+
+function updateDisplay() {
+    const display = document.querySelector("#number");
+    display.value = displayValue;
 }
-function subtract(a, b) {
-    return a - b;
-}
-function multiply(a, b) {
-    return a * b;
-}
-function divide(a, b) {
-    return a / b;
-}
-function operate(a, b, operator) {
-    switch (operator) {
-        case '+':
-            return roundNum(add(a, b));
-        case '-':
-            return roundNum(subtract(a, b));
-        case 'x':
-            return roundNum(multiply(a, b));
-        case '÷':
-            return roundNum(divide(a, b));
+function inputDigit(digit) {
+    if (waitingForSecondOperand === true) {
+        displayValue = digit;
+        waitingForSecondOperand = false;
+    }
+    else {
+        displayValue = displayValue === '0' ? digit : displayValue + digit;
     }
 }
-function roundNum(num) {
-    if (String(num).includes('.') && String(num).replace(/\d*./, '').length > 9){
-        return Math.round(num*100000000)/100000000;
+function inputDecimal(dot) {
+    if (waitingForSecondOperand === true) return;
+    if (!displayValue.includes(dot)) {
+        displayValue += dot;
     }
-    return num;
 }
-function buttonPressed(btn) {
-    btn.classList.add('clicked');
-    // setTimeout(removeClicked.bind(null, btn), 100);
-    setTimeout(() => {btn.classList.remove('clicked')}, 100);
+function handleOperator(nextOperator) {
+    const inputValue = parseFloat(displayValue);
+    if (operator && waitingForSecondOperand) {
+        operator = nextOperator;
+        return;
+    }
+    if (firstOperand === null) {
+        firstOperand = inputValue;
+    } else if (operator) {
+        const result = performCalculation[operator](firstOperand, inputValue);
+
+        displayValue = String(result);
+        firstOperand = result;
+    }
+    waitingForSecondOperand = true;
+    operator = nextOperator;
+}
+// perform calculations
+const performCalculation = {
+    '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
+  
+    '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
+  
+    '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
+  
+    '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
+  
+    '=': (firstOperand, secondOperand) => secondOperand
+};
+function resetCalculator() {
+    displayValue = "0";
+    firstOperand = null;
+    waitingForSecondOperand = false;
+    operator = null;
 }
 
-/* NIGHT MODE*/
-checkbox.addEventListener("change", function() {
+updateDisplay();
+keys.addEventListener("click", (event) => {
+    //const { target } = event;
+    const target = event.target;
+    if(!target.matches('button')) {
+        return;
+    }
+    if(target.classList.contains('math')) {
+        handleOperator(target.value);
+        updateDisplay();
+        return;
+    }
+    if(target.classList.contains('decimal')) {
+        inputDecimal(target.value);
+        updateDisplay();
+        return;
+    }
+    if(target.classList.contains('clear')) {
+        resetCalculator();
+        updateDisplay();
+        return;
+    }
+
+    inputDigit(target.value);
+    updateDisplay();
+});
+
+// // night mode
+checkbox.addEventListener("change", nightmode)
+// // end night mode--
+
+// night mode function
+function nightmode(e) {
     const border = document.querySelector("#calculator");
     const header = document.querySelector("#calculatorHeader");
     const output = document.querySelector("#output");
@@ -47,7 +102,6 @@ checkbox.addEventListener("change", function() {
     const operatorInputs = document.querySelectorAll(".input");
     const numberInputs = document.querySelectorAll(".numInput");
     const equal = document.querySelector("#equalBtn");
-
     if (this.checked) {
         border.style.borderColor = "#212b41";
         border.style.transitionDuration = ".4s";
@@ -59,6 +113,7 @@ checkbox.addEventListener("change", function() {
         output.style.transitionDuration = ".4s";
 
         number.style.color = "#18d4a3";
+        number.style.backgroundColor = "#212b41";
         number.style.transitionDuration = ".4s";
 
         calcInput.style.backgroundColor = "#2d384f";
@@ -81,10 +136,11 @@ checkbox.addEventListener("change", function() {
         equal.style.transitionDuration = ".4s";
     }
     else {
-        border.style.border = "grey;"
+        border.style.borderColor = "grey"
         header.style.backgroundColor = "#f4fdfb";
         output.style.backgroundColor = "#f4fdfb";
         number.style.color = "#373e47";
+        number.style.backgroundColor = "#f4fdfb";
         calcInput.style.backgroundColor = "white";
 
         operatorInputs.forEach((operatorInput) => {
@@ -100,5 +156,5 @@ checkbox.addEventListener("change", function() {
         equal.style.backgroundColor = "#18d4a3";
         equal.style.color = "white";
     }
-})
+}
 /* NIGHT MODE */

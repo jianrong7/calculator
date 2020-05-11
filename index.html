@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <h1>Calculator Project</h1>
+        <h1>just a calculator</h1>
         <h4>by kynki7</h4>
     </header>
     <div class="container">
@@ -22,34 +22,39 @@
                     <span class="tooltiptext">ok boomer</span>
                 </div>
                 <label class="switch">
-                    <input type="checkbox" name="checkbox">
+                    <input type="checkbox" name="checkbox" class="checkbox">
                     <span class="slider round"></span>
                 </label>
             </div>
             <div id="output">
-                <div id="number">120</div>
+                <input type="text" class="calculator-screen" id="number" value="" disabled />
             </div>
             <div id="calculatorInput">
-                <button class="input" id="cancelBtn">C</button>
-                <button class="input" id="plusMinusBtn">±</button>
-                <button class="input" id="percentBtn">%</button>
-                <button class="input" id="divideBtn">÷</button>
-                <button class="numInput" id="sevenBtn">7</button>
-                <button class="numInput" id="eightBtn">8</button>
-                <button class="numInput" id="nineBtn">9</button>
-                <button class="input" id="multiplyBtn">x</button>
-                <button class="numInput" id="fourBtn">4</button>
-                <button class="numInput" id="fiveBtn">5</button>
-                <button class="numInput" id="sixBtn">6</button>
-                <button class="input" id="minusBtn">-</button>
-                <button class="numInput" id="oneBtn">1</button>
-                <button class="numInput" id="twoBtn">2</button>
-                <button class="numInput" id="threeBtn">3</button>
-                <button class="input" id="plusBtn">+</button>
-                <button class="numInput" id="zeroBtn">0</button>
-                <button class="numInput" id="dotBtn">.</button>
+                <button class="input clear" id="clearBtn">C</button>
+                <button class="input math" id="plusMinusBtn">±</button>
+                <button class="input math" id="percentBtn">%</button>
+                <button class="input math" id="divideBtn" value="/">&divide;</button>
+
+                <button class="numInput" id="sevenBtn" value="7">7</button>
+                <button class="numInput" id="eightBtn" value="8">8</button>
+                <button class="numInput" id="nineBtn" value="9">9</button>
+                <button class="input math" id="multiplyBtn" value="*">&times;</button>
+
+                <button class="numInput" id="fourBtn" value="4">4</button>
+                <button class="numInput" id="fiveBtn" value="5">5</button>
+                <button class="numInput" id="sixBtn" value="6">6</button>
+                <button class="input math" id="minusBtn" value="-">-</button>
+
+                <button class="numInput" id="oneBtn" value="1">1</button>
+                <button class="numInput" id="twoBtn" value="2">2</button>
+                <button class="numInput" id="threeBtn" value="3">3</button>
+                <button class="input math" id="plusBtn" value="+">+</button>
+
+                <button class="numInput" id="zeroBtn" value="0">0</button>
+                <button class="numInput decimal" id="dotBtn" value=".">.</button>
                 <div id="emptyBtn"></div>
-                <button class="input" id="equalBtn">=</button>
+                <button class="input math" id="equalBtn" value="=">=</button>
+
             </div>
         </div>
     </div>

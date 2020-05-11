@@ -52,6 +52,9 @@ header {
     font-size: 45px;
     color: #373e47;
     font-family: 'Noto Sans SC', sans-serif;
+    border: 0;
+    background-color: #f4fdfb;
+    text-align: right;
 }
 #calculatorInput {
     padding: 10px;
