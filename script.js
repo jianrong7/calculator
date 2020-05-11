@@ -74,6 +74,42 @@ function handlePlusMinus() {
           displayValue = '-' + displayValue;
     }
 }
+function keyCheck(event) {
+    var keyID = event.keyCode;
+    var key = event.key
+    if (keyID == 8) {
+        displayValue = displayValue.slice(1);
+        updateDisplay();
+    }
+    else if (keyID == 46) {
+        displayValue = displayValue.slice(1);
+        updateDisplay();
+    }
+    else if (key >= 0 && key <= 9) {
+        inputDigit(event.key);
+        updateDisplay();
+    }
+    else if (key == 'c') {
+        resetCalculator();
+        updateDisplay();
+    }
+    else if (key == '+' || key == '-' || key == '/' || key == '*' || key == '=') {
+        handleOperator(event.key);
+        updateDisplay();
+    }
+    else if (keyID == 13) {
+        handleOperator('=');
+        updateDisplay();
+    }
+    else if (key == '%') {
+        handlePercent();
+        updateDisplay();
+    }
+    else if (key == '.') {
+        inputDecimal(target.value);
+        updateDisplay();
+    }
+}
 
 updateDisplay();
 keys.addEventListener("click", (event) => {
@@ -90,15 +126,16 @@ keys.addEventListener("click", (event) => {
     if(target.classList.contains('percent')) {
         handlePercent();
         updateDisplay();
+        return;
     }
     if(target.classList.contains('plusMinus')) {
         handlePlusMinus();
         updateDisplay();
+        return;
     }
     if(target.classList.contains('decimal')) {
         inputDecimal(target.value);
         updateDisplay();
-        console.log(displayValue)
         return;
     }
     if(target.classList.contains('clear')) {
@@ -110,6 +147,7 @@ keys.addEventListener("click", (event) => {
     inputDigit(target.value);
     updateDisplay();
 });
+document.addEventListener("keydown", keyCheck);
 
 // // night mode
 checkbox.addEventListener("change", nightmode)

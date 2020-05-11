@@ -4,6 +4,7 @@ body {
     background-color: #91a4c2;
     top: 0px;
     margin: 0px;
+    overflow: hidden;
     text-align: center;
 }
 h1 {
@@ -12,6 +13,10 @@ h1 {
 h4 {
     font-weight: lighter;
     font-size: 14px;
+}
+h5 {
+  font-weight: lighter;
+  font-size: 12px;
 }
 header {
     margin-bottom: 50px;
