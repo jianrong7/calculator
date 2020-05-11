@@ -1,10 +1,13 @@
 body {
     font-family: Roboto;
     font-size: 18px;
-    background-color: #d9ebd3;
+    background-color: #91a4c2;
     top: 0px;
     margin: 0px;
     text-align: center;
+}
+h1 {
+  font-weight: normal;
 }
 h4 {
     font-weight: lighter;
