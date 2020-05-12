@@ -74,6 +74,7 @@ function handlePlusMinus() {
           displayValue = '-' + displayValue;
     }
 }
+// keyboard function
 function keyCheck(event) {
     var keyID = event.keyCode;
     var key = event.key
@@ -110,6 +111,7 @@ function keyCheck(event) {
         updateDisplay();
     }
 }
+// --end keyboard function--
 
 updateDisplay();
 keys.addEventListener("click", (event) => {
@@ -147,11 +149,13 @@ keys.addEventListener("click", (event) => {
     inputDigit(target.value);
     updateDisplay();
 });
+// keyboard functionality
 document.addEventListener("keydown", keyCheck);
+// -- end keyboard functionality --
 
-// // night mode
+// night mode
 checkbox.addEventListener("change", nightmode)
-// // end night mode--
+// --end night mode--
 
 // night mode function
 function nightmode(e) {
