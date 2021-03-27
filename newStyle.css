@@ -1,0 +1,49 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    color: #171717;
+    text-align: center;
+}
+header {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 20px;
+}
+h1 {
+    font-size: 30px;
+    margin: 5px;
+}
+h2 {
+    font-size: 21px;
+    margin: 5px;
+}
+h2 a {
+    text-decoration: none;
+    color: #171717;
+}
+h3 {
+    font-size: 18px;
+    margin: 20px;
+}
+.container {
+    height: 700px;
+    width: 500px;
+    margin: auto;
+}
+#calculator {
+    border: 3px solid black;
+    width: 100%;
+    height: 100%;
+}
+#output {
+    height: 35%;
+}
+.calculator-screen {
+    width: 100%;
+}
+#calculatorInput {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
+    height: 65%;
+}
