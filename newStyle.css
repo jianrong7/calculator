@@ -63,14 +63,20 @@ h3 {
     justify-items: center;
     align-items: center;
 }
+button {
+    outline: none;
+}
+button:hover {
+    cursor: pointer;
+}
 /* general button design */
 .input:not(#zeroBtn) {
     background-color: #EFEFEF;
     border: none;
     color: #171717;
     text-align: center;
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     border-radius: 10%;          
     align-items: center;      
     justify-content: center; 
@@ -79,7 +85,7 @@ h3 {
     font-weight: bold;
 }
 .operators {
-    font-size: 35px !important;
+    font-size: 30px !important;
 }
 .edge {
     background-color: #FFEDC3 !important;

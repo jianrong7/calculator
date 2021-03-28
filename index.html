@@ -15,38 +15,38 @@
 <body>
     <header>
         <h1>Calculator 2021</h1>
-        <h2>by <a href="https://github.com/jianrong7" target="_blank">jianrong7</a></h4>
-        <h3>keyboard functionality supported</h5>
+        <h2>by <a href="https://github.com/jianrong7" target="_blank">jianrong7</a></h2>
+        <!-- <h3>keyboard functionality supported</h3> -->
     </header>
     <div class="container">
         <div id="calculator">
             <div id="output">
-                <input type="text" class="calculator-screen" id="number" value="1" disabled />
+                <input type="text" class="calculator-screen" id="number" value="" disabled />
             </div>
             <div id="calculatorInput">
-                <button class="input edge" id="clearBtn">C</button>
-                <button class="input edge" id="delBtn">Del</button>
-                <button class="input operators edge" id="percentBtn" value="%">%</button>
-                <button class="input operators edge" id="divideBtn" value="/">&divide;</button>
+                <button class="input edge notNumber" id="clearBtn">C</button>
+                <button class="input edge notNumber" id="delBtn">Del</button>
+                <button class="input operators edge notNumber" id="percentBtn" value="%">%</button>
+                <button class="input operators edge notNumber" id="divideBtn" value="/">&divide;</button>
 
-                <button class="input" id="sevenBtn" value="7">7</button>
-                <button class="input" id="eightBtn" value="8">8</button>
-                <button class="input" id="nineBtn" value="9">9</button>
-                <button class="input operators edge" id="multiplyBtn" value="*">&times;</button>
+                <button class="input number" id="sevenBtn" value="7">7</button>
+                <button class="input number" id="eightBtn" value="8">8</button>
+                <button class="input number" id="nineBtn" value="9">9</button>
+                <button class="input operators edge notNumber" id="multiplyBtn" value="*">&times;</button>
 
-                <button class="input" id="fourBtn" value="4">4</button>
-                <button class="input" id="fiveBtn" value="5">5</button>
-                <button class="input" id="sixBtn" value="6">6</button>
-                <button class="input operators edge" id="plusBtn" value="-">+</button>
+                <button class="input number" id="fourBtn" value="4">4</button>
+                <button class="input number" id="fiveBtn" value="5">5</button>
+                <button class="input number" id="sixBtn" value="6">6</button>
+                <button class="input operators edge notNumber" id="plusBtn" value="+">+</button>
 
-                <button class="input" id="oneBtn" value="1">1</button>
-                <button class="input" id="twoBtn" value="2">2</button>
-                <button class="input" id="threeBtn" value="3">3</button>
-                <button class="input operators edge" id="minusBtn" value="+">-</button>
+                <button class="input number" id="oneBtn" value="1">1</button>
+                <button class="input number" id="twoBtn" value="2">2</button>
+                <button class="input number" id="threeBtn" value="3">3</button>
+                <button class="input operators edge notNumber" id="minusBtn" value="-">-</button>
 
-                <button class="input" id="zeroBtn" value="0">0</button>
+                <button class="input number" id="zeroBtn" value="0">0</button>
                 <button class="input" id="dotBtn" value=".">.</button>
-                <button class="input operators" id="equalBtn" value="=">=</button>
+                <button class="input notNumber equal" id="equalBtn" value="=">=</button>
             </div>
         </div>
     </div>
