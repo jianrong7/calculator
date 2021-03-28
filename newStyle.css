@@ -27,8 +27,8 @@ h3 {
 }
 /* Calculator Section */
 .container {
-    height: 700px;
-    width: 500px;
+    height: 600px;
+    width: 400px;
     margin: auto;
 }
 #calculator {
@@ -64,21 +64,44 @@ h3 {
     align-items: center;
 }
 /* general button design */
-.input {
+.input:not(#zeroBtn) {
     background-color: #EFEFEF;
     border: none;
     color: #171717;
     text-align: center;
-    height: 80px;
-    width: 80px;
-    border: 3px solid black;
+    height: 70px;
+    width: 70px;
     border-radius: 10%;          
     align-items: center;      
     justify-content: center; 
     justify-self: center;
     font-size: 25px;
+    font-weight: bold;
+}
+.operators {
+    font-size: 35px !important;
+}
+.edge {
+    background-color: #FFEDC3 !important;
+    color: #ca932c !important;
 }
 #zeroBtn {
     grid-column-start: 1;
     grid-column-end: 3;
+    background-color: #EFEFEF;
+    border: none;
+    color: #171717;
+    text-align: center;
+    height: 80%;
+    width: 80%;
+    border-radius: 10%;          
+    align-items: center;      
+    justify-content: center; 
+    justify-self: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+#equalBtn {
+    background-color: #FDC239 !important;
+    color: #ca932c !important;
 }
