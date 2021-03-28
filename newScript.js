@@ -5,53 +5,25 @@ let secondOperand = ""
 let answer = ""
 let operator = ""
 
-// function add(a, b) {
-//     return a + b;
-// }
-// function subtract(a, b) {
-//     return a - b;
-// }
-// function multiply(a, b) {
-//     return a * b;
-// }
-// function divide(a, b) {
-//     return a / b;
-// }
 function operate(a, b, operator) {
     a = parseInt(a)
     b = parseInt(b)
-    console.log(a)
-    console.log(b)
-    console.log(operator)
+    let temp = 0
     switch(operator) {
         case "+":
-            return a + b
+            temp = a + b
+            return temp.toString()
         case "-":
-            return a - b
+            temp = a - b
+            return temp.toString()
         case "*":
-            return a * b
+            temp = a * b
+            return temp.toString()
         case "/":
-            return a / b
+            temp = a / b
+            return temp.toString()
     }
 }
-// function updateDisplay(displayValue) {
-//     const display = document.querySelector('.calculator-screen')
-//     displayValue = parseInt(displayValue)
-
-//     if (Number.isNaN(displayValue)) {
-//         return
-//     } else {
-//         if (display.Value == "") {
-//             display.value = displayValue
-//         } else {
-//             display.value += displayValue
-//         }
-//     }
-// }
-// function handleOperator(key, firstNumber) {
-//     // if (key.value == )
-//     console.log(firstNumber)
-// }
 function updateDisplay() {
     const display = document.querySelector('.calculator-screen')
     if (!waitingForSecondOperand) {
@@ -71,7 +43,6 @@ function updateOperand(key) {
 }
 function inputDigit() {
     const keys = document.querySelectorAll('.input')
-    const display = document.querySelector('.calculator-screen')
     keys.forEach(key => {
         key.addEventListener('click', () => {
             if (key.classList.contains('number')) {
@@ -89,7 +60,20 @@ function inputDigit() {
                 answer = operate(firstOperand, secondOperand, operator)
                 console.log(answer)
                 updateDisplay()
+                
                 waitingForSecondOperand = false
+                waitingForEqual = false
+                firstOperand = answer
+                secondOperand = ""
+            }
+            if (key.classList.contains('clear')) {
+                waitingForSecondOperand = false
+                waitingForEqual = false
+                firstOperand = ""
+                secondOperand = ""
+                answer = ""
+                operator = ""
+                updateDisplay()
             }
         })
     })
