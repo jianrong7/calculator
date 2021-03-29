@@ -106,10 +106,16 @@ function handleNumber(keyValue) {
     }
     if (waitingForSecondOperand) {
         secondOperand += keyValue
+        displayValue += keyValue
     } else {
-        firstOperand += keyValue
+        if (displayValue === "0") {
+            firstOperand = keyValue
+            displayValue = keyValue
+        } else {
+            firstOperand += keyValue
+            displayValue += keyValue
+        }
     }
-    displayValue += keyValue
 }
 function handleOperator(keyValue) {
     if (waitingForSecondOperand) {
@@ -159,6 +165,17 @@ keys.forEach(key => {
             if (key.classList.contains('clear')) {
                 reset()
                 updateDisplay()
+            }
+            if (key.classList.contains('del')) {
+                if (waitingForSecondOperand) {
+                    secondOperand = secondOperand.slice(0, -1)
+                    displayValue = secondOperand
+                    updateDisplay()
+                } else {
+                    firstOperand = firstOperand.slice(0, -1)
+                    displayValue = firstOperand
+                    updateDisplay()
+                }
             }
     })
 })
