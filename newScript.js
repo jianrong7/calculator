@@ -99,6 +99,11 @@ let waitingForSecondOperand = false
 const numberRegex = /\d+/g;
 
 function handleNumber(keyValue) {
+    if (operator === "/" && keyValue === "0") {
+        console.log(operator, keyValue)
+        displayValue = "nice try"
+        return
+    }
     if (waitingForSecondOperand) {
         secondOperand += keyValue
     } else {
