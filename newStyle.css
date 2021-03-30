@@ -111,3 +111,21 @@ button:hover {
     background-color: #FDC239 !important;
     color: #ca932c !important;
 }
+.highlightOperator {
+    background-color: #ffb406 !important;
+    color: #885c09 !important;
+}
+.mode {
+    width: 20px;
+    height: 20px;
+}
+#mode:hover {
+    cursor: pointer;
+}
+.colorMode {
+    background: transparent;
+    border: none !important;
+    font-size: 0;
+    height: 20px;
+    width: 20px;
+}

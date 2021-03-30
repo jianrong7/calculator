@@ -97,6 +97,7 @@ let secondOperand = "";
 let operator = "";
 let waitingForSecondOperand = false
 const numberRegex = /\d+/g;
+const operators = document.querySelectorAll('.operators')
 
 function handleNumber(keyValue) {
     if (operator === "/" && keyValue === "0") {
@@ -118,7 +119,7 @@ function handleNumber(keyValue) {
     }
 }
 function handleOperator(keyValue) {
-    if (waitingForSecondOperand) {
+    if (waitingForSecondOperand && secondOperand !== "") {
         let result = operate(firstOperand, secondOperand, operator)
         displayValue = result
         firstOperand = result
@@ -132,14 +133,24 @@ function handleEqual() {
     displayValue = result
     firstOperand = result
     secondOperand = ""
-    waitingForSecondOperand = false
+    waitingForSecondOperand = false;
+    [...operators].forEach(operator => {
+        if (operator.classList.contains('highlightOperator')) {
+            operator.classList.toggle('highlightOperator')
+        }
+    })
 }
 function reset() {
     displayValue = "0";
     firstOperand = "";
     secondOperand = "";
     operator = "";
-    waitingForSecondOperand = false
+    waitingForSecondOperand = false;
+    [...operators].forEach(operator => {
+        if (operator.classList.contains('highlightOperator')) {
+            operator.classList.toggle('highlightOperator')
+        }
+    })
 }
 function updateDisplay() {
     const display = document.querySelector('.calculator-screen')
@@ -147,6 +158,7 @@ function updateDisplay() {
 }
 
 const keys = document.querySelectorAll('.input')
+const colorMode = document.querySelector('.colorMode')
 keys.forEach(key => {
     key.addEventListener('click', () => {
             if (key.classList.contains('number')) {
@@ -154,9 +166,17 @@ keys.forEach(key => {
                 updateDisplay()
             }
             if (key.classList.contains('operators')) {
-                handleOperator(key.value)
+                [...operators].forEach(operator => {
+                    if (operator.classList.contains('highlightOperator')) {
+                        operator.classList.toggle('highlightOperator')
+                        displayValue = firstOperand
+                    }
+                })
+                key.classList.toggle('highlightOperator')
+                handleOperator(key.value);
                 updateDisplay()
                 displayValue = ""
+                
             }
             if (key.classList.contains('equal')) {
                 handleEqual()
@@ -178,4 +198,10 @@ keys.forEach(key => {
                 }
             }
     })
+})
+colorMode.addEventListener('click', () => {
+    const jr7 = document.querySelector('.jr7')
+    document.body.style.backgroundColor = "#1E1E1E"
+    document.body.style.color = "#FCFCFC"
+    jr7.style.color = "#FCFCFC"
 })
