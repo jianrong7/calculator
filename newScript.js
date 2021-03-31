@@ -199,9 +199,59 @@ keys.forEach(key => {
             }
     })
 })
+let darkMode = false
 colorMode.addEventListener('click', () => {
     const jr7 = document.querySelector('.jr7')
-    document.body.style.backgroundColor = "#1E1E1E"
-    document.body.style.color = "#FCFCFC"
-    jr7.style.color = "#FCFCFC"
+    const inputButtons = document.querySelectorAll('.input')
+    const edgeButtons = document.querySelectorAll('.edge')
+    const calc = document.querySelector('#calculator')
+    const output = document.querySelector('#output')
+    const calcScreen = document.querySelector('.calculator-screen')
+    const equalBtn = document.querySelector('#equalBtn')
+    const pic = document.querySelector('.mode')
+
+    console.log(darkMode)
+    if (darkMode) {
+        document.body.style.backgroundColor = "#FFFFFF"
+        document.body.style.color = "#171717"
+        jr7.style.color = "#171717"
+    
+        inputButtons.forEach(inputButton => {
+            inputButton.style.color = "#171717"
+            inputButton.style.backgroundColor = "#EFEFEF"
+        })
+        edgeButtons.forEach(edgeButton => {
+            edgeButton.style.backgroundColor = "#FFEDC3"
+            edgeButton.style.color = "#ca932c"
+        })
+        calc.style.border = "2px solid #dadada"
+        output.style.backgroundColor = "#f4fdfb"
+        output.style.borderBottom = "0px solid #dadada"
+        calcScreen.style.backgroundColor = "#f4fdfb"
+        calcScreen.style.color = "#171717"
+        equalBtn.style.backgroundColor = "#FDC239"
+        equalBtn.style.color = "#ca932c"
+        pic.src = "assets/sun.png"
+        darkMode = false
+    } else {
+        document.body.style.backgroundColor = "#1E1E1E"
+        document.body.style.color = "#FCFCFC"
+        jr7.style.color = "#FCFCFC"
+    
+        inputButtons.forEach(inputButton => {
+            inputButton.style.color = "#FCFCFC"
+            inputButton.style.backgroundColor = "#252525"
+        })
+        edgeButtons.forEach(edgeButton => {
+            edgeButton.style.backgroundColor = "#333333"
+        })
+        calc.style.border = "2px solid #414141"
+        output.style.backgroundColor = "#1E1E1E"
+        output.style.borderBottom = "1px solid #414141"
+        calcScreen.style.backgroundColor = "#1E1E1E"
+        calcScreen.style.color = "#FCFCFC"
+        pic.src = "assets/moon.png"
+        darkMode = true
+    }
+
 })

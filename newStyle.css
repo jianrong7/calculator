@@ -32,7 +32,7 @@ h3 {
     margin: auto;
 }
 #calculator {
-    border: 3px solid #cccccc;
+    border: 2px solid #dadada;
     border-radius: 2px;
     width: 100%;
     height: 100%;
@@ -41,6 +41,7 @@ h3 {
     height: 35%;
     position: relative;
     background-color: #f4fdfb;
+    color: #171717;
 }
 .calculator-screen {
     position: absolute;
@@ -71,9 +72,7 @@ button:hover {
 }
 /* general button design */
 .input:not(#zeroBtn) {
-    background-color: #EFEFEF;
     border: none;
-    color: #171717;
     text-align: center;
     height: 60px;
     width: 60px;
@@ -85,11 +84,11 @@ button:hover {
     font-weight: bold;
 }
 .operators {
-    font-size: 30px !important;
+    font-size: 30px;
 }
 .edge {
-    background-color: #FFEDC3 !important;
-    color: #ca932c !important;
+    background-color: #FFEDC3;
+    color: #ca932c;
 }
 #zeroBtn {
     grid-column-start: 1;
@@ -108,23 +107,20 @@ button:hover {
     font-weight: bold;
 }
 #equalBtn {
-    background-color: #FDC239 !important;
-    color: #ca932c !important;
+    background-color: #FDC239;
+    color: #ca932c;
 }
 .highlightOperator {
-    background-color: #ffb406 !important;
-    color: #885c09 !important;
+    background-color: #ffb406;
+    color: #885c09;
 }
 .mode {
     width: 20px;
     height: 20px;
 }
-#mode:hover {
-    cursor: pointer;
-}
 .colorMode {
     background: transparent;
-    border: none !important;
+    border: none;
     font-size: 0;
     height: 20px;
     width: 20px;
