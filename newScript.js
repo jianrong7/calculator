@@ -95,7 +95,9 @@ let displayValue = "";
 let firstOperand = "";
 let secondOperand = "";
 let operator = "";
+let operatorKey = "";
 let waitingForSecondOperand = false
+let darkMode = false;
 const numberRegex = /\d+/g;
 const operators = document.querySelectorAll('.operators')
 
@@ -152,11 +154,30 @@ function reset() {
         }
     })
 }
+function handleDot() {
+    if (waitingForSecondOperand) {
+        secondOperand += "."
+        displayValue += "."
+    } else if (!waitingForSecondOperand) {
+        firstOperand += "."
+        displayValue += "."
+    }
+}
+function handlePercent() {
+    if(!displayValue == "0"){
+        displayValue *= 0.01;
+        displayValue = Math.round(displayValue*100000000)/100000000;
+    }
+}
 function updateDisplay() {
     const display = document.querySelector('.calculator-screen')
-    display.value = displayValue
+    if (displayValue.length > 14) {
+        display.value = displayValue.slice(0, 15)
+    } else {
+        display.value = displayValue
+    }
 }
-
+// main calculator function
 const keys = document.querySelectorAll('.input')
 const colorMode = document.querySelector('.colorMode')
 keys.forEach(key => {
@@ -176,7 +197,6 @@ keys.forEach(key => {
                 handleOperator(key.value);
                 updateDisplay()
                 displayValue = ""
-                
             }
             if (key.classList.contains('equal')) {
                 handleEqual()
@@ -197,9 +217,17 @@ keys.forEach(key => {
                     updateDisplay()
                 }
             }
+            if (key.classList.contains('dot')) {
+                handleDot()
+                updateDisplay()
+            }
+            if (key.classList.contains('percent')) {
+                handlePercent()
+                updateDisplay()
+            }
     })
 })
-let darkMode = false
+// dark mode function
 colorMode.addEventListener('click', () => {
     const jr7 = document.querySelector('.jr7')
     const inputButtons = document.querySelectorAll('.input')
@@ -253,5 +281,57 @@ colorMode.addEventListener('click', () => {
         pic.src = "assets/moon.png"
         darkMode = true
     }
-
 })
+// keyboard function
+function keyCheck(event) {
+    var keyID = event.keyCode;
+    var key = event.key
+    if (keyID == 8) {
+        if (waitingForSecondOperand) {
+            secondOperand = secondOperand.slice(0, -1)
+            displayValue = secondOperand
+            updateDisplay()
+        } else {
+            firstOperand = firstOperand.slice(0, -1)
+            displayValue = firstOperand
+            updateDisplay()
+        }
+    }
+    else if (key >= 0 && key <= 9) {
+        handleNumber(key)
+        updateDisplay()
+    }
+    else if (key == 'c') {
+        reset()
+        updateDisplay()
+    }
+    else if (key == '+' || key == '-' || key == '/' || key == '*') {
+        [...operators].forEach(operator => {
+            if (operator.value == key) {
+                operatorKey = operator
+            }
+            if (operator.classList.contains('highlightOperator')) {
+                operator.classList.toggle('highlightOperator')
+                displayValue = firstOperand
+            }
+        })
+        console.log(operatorKey)
+        operatorKey.classList.toggle('highlightOperator')
+        handleOperator(operatorKey.value);
+        updateDisplay()
+        displayValue = ""
+    }
+    else if (keyID == 13) {
+        handleEqual()
+        updateDisplay()
+    }
+    // else if (key == '%') {
+    //     handlePercent();
+    //     updateDisplay();
+    // }
+    else if (key == '.') {
+        handleDot();
+        updateDisplay();
+    }
+}
+document.addEventListener("keydown", keyCheck);

@@ -71,7 +71,7 @@ button:hover {
     cursor: pointer;
 }
 /* general button design */
-.input:not(#zeroBtn) {
+.input:not(#zeroBtn, #clearBtn) {
     border: none;
     text-align: center;
     height: 60px;
@@ -96,6 +96,22 @@ button:hover {
     background-color: #EFEFEF;
     border: none;
     color: #171717;
+    text-align: center;
+    height: 80%;
+    width: 80%;
+    border-radius: 10%;          
+    align-items: center;      
+    justify-content: center; 
+    justify-self: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+#clearBtn {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background-color: #FFEDC3;
+    border: none;
+    color: #ca932c;
     text-align: center;
     height: 80%;
     width: 80%;

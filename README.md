@@ -20,7 +20,4 @@ UI Concept Idea from [here](https://static.collectui.com/shots/3756276/daily-ui-
 - Read through online tutorials instead of skimming through them
 
 #### To Do List
-- Add decimal function
-- Add keyboard support
-- Add dark mode
 - Add "Google Calculator" function support
